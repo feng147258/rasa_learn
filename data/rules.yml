@@ -1,0 +1,19 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- rule: faq_rule
+  steps:
+  - intent: faq
+  - action: utter_faq         # 这样就根据 domain 中的 aciton 的 utter_faq 回复对应的内容 utter_faq response 中定义的。action_开头就是 action.py 中定义的action 名字。

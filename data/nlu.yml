@@ -1,0 +1,30 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+
+
+- intent: faq/ask_help
+  examples: |
+    - 需要什么帮助
+    - 能帮你什么
+
+- intent: faq/ask_name
+  examples: |
+    - 你叫什么名字
+    - 你叫啥
+
+- intent: faq/ask_gender
+  examples: |
+    - 你性别是啥
+    - 你是男的还是女的
+
+- intent: faq/ask_love
+  examples: |
+    - 你喜欢啥
+    - 你的爱好是啥
+
+

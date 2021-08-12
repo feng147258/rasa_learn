@@ -1,0 +1,85 @@
+version: "2.0"
+
+intents:
+  - greet
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - thanks
+  - faq               # faq 下也有几个分类，但是在 intents 中只标注faq 就可以了，把 整个faq当成了一个整体 训练，通过一定的规则分离 faq 下具体对应的 intent
+  - internal_medicines
+  - obstetrics_gynecology
+  - pediatric
+  - oncology
+  - andriatria
+  - surgical
+  - medicines
+
+entites:
+  - medicine
+
+#slots:
+#  cuisine:
+#    type: text
+#    auto_fill: false
+#    influence_conversation: false
+#  num_people:
+#    type: float
+#    auto_fill: false
+#    influence_conversation: false
+#  outdoor_seating:
+#    type: text
+#    auto_fill: false
+#    influence_conversation: false
+actions:
+  - utter_faq                           # 以 utter 开头的 可加可不加。不加也会走到 response 中的 utter_faq
+  - action_internal_medicine            # 以 action 开头的是在 action.py 中定义的，
+  - action_obstetrics_gynecology
+  - action_pediatric
+  - action_oncology
+  - action_andriatria
+  - action_surgical
+  - action_medicines
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_faq/ask_help:
+  - text: "这个是 faq 的 ask_help"
+
+  utter_faq/ask_name:
+  - text: "我的名字是小可爱"
+
+  utter_faq/ask_gender:
+  - text: "我的性别是它！"
+
+  utter_faq/ask_love:
+  - text: "我喜欢打篮球"
+  - text: "我也喜欢跑步"
+
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_default:
+  - text: "this is a utter_default answer"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
